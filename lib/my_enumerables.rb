@@ -8,6 +8,16 @@ end
 # to this method
 class Array
   # Define my_each here
+
+  def my_count
+    return self.length unless block_given?
+    counter = 0
+    self.my_each do |element|
+      counter += 1 if yield(element)
+    end
+    counter
+  end
+
   def my_each
     return to_enum(:my_each) unless block_given?
     for i in 0..(self.length - 1)
