@@ -15,4 +15,13 @@ class Array
     end
     self
   end
+
+  def my_map
+    return to_enum(:my_map) unless block_given?
+    result = []
+    self.my_each do |element|
+      result << yield(element)
+    end
+    result
+  end
 end
