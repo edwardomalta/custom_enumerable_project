@@ -42,4 +42,14 @@ class Array
     end
     result
   end
+
+  def my_select
+    return to_enum(:my_select) unless block_given?
+    result = []
+    self.my_each do |element|
+      result << element if yield(element)
+    end
+    result
+  end
+
 end
