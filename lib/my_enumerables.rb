@@ -51,5 +51,12 @@ class Array
     end
     result
   end
-
+  
+  def my_all?
+    return to_enum(:my_all?) unless block_given?
+    self.my_each do |element|
+      return false unless yield(element)
+    end
+    true
+  end
 end
