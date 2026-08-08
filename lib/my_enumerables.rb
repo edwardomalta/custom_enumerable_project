@@ -75,4 +75,12 @@ class Array
     end
     false
   end
+
+  def my_inject(value)
+    my_accumulator = value
+    self.my_each do |element|
+      my_accumulator = yield(my_accumulator, element)
+    end
+    my_accumulator
+  end
 end
